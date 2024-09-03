@@ -16,6 +16,15 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css" />
 
+    <!-- AlpineJS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- App -->
+    <script src="src/app.js"></script>
+
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
@@ -113,7 +122,7 @@
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="menu">
+    <section id="menu" class="menu" x-data="products">
       <h2>Menu <span>Kami</span></h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex est atque
@@ -121,78 +130,54 @@
       </p>
 
       <div class="row">
-        <div class="menu-card">
-          <img src="img/contoh.jpg" alt="Minipao" class="menu-card-img" />
-          <h3 class="menu-card-title">-Minipao Cokelat-</h3>
-          <div class="product-star">
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="menu-card">
+            <img
+              :src="`img/${item.img}`"
+              :alt="item.name"
+              class="menu-card-img"
+            />
+            <h3 class="menu-card-title" x-text="item.name"></h3>
+            <div class="product-star">
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+            </div>
+
+            <p class="menu-card-price">IDR <span x-text="item.price"></span></p>
+
+            <div class="menu-icon">
+              <a href="#">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#shopping-cart" />
+                </svg>
+              </a>
+              <a href="#" class="item-detail-button">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#eye" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <p class="menu-card-price">IDR 14K</p>
-          <div class="menu-icon">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#"
-              ><i data-feather="eye" class="item-detail-button"></i
-            ></a>
-          </div>
-        </div>
-        <div class="menu-card">
-          <img src="img/contoh.jpg" alt="Minipao" class="menu-card-img" />
-          <h3 class="menu-card-title">-Minipao Ayam-</h3>
-          <div class="product-star">
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star"></i>
-          </div>
-          <p class="menu-card-price">IDR 14K</p>
-          <div class="menu-icon">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#"
-              ><i data-feather="eye" class="item-detail-button"></i
-            ></a>
-          </div>
-        </div>
-        <div class="menu-card">
-          <img src="img/contoh.jpg" alt="Minipao" class="menu-card-img" />
-          <h3 class="menu-card-title">-Minipao Sapi-</h3>
-          <div class="product-star">
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star" class="star-fill"></i>
-          </div>
-          <p class="menu-card-price">IDR 14K</p>
-          <div class="menu-icon">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#"
-              ><i data-feather="eye" class="item-detail-button"></i
-            ></a>
-          </div>
-        </div>
-        <div class="menu-card">
-          <img src="img/contoh.jpg" alt="Minipao" class="menu-card-img" />
-          <h3 class="menu-card-title">-Minipao Strawberry-</h3>
-          <div class="product-star">
-            <i data-feather="star" class="star-fill"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <p class="menu-card-price">IDR 14K</p>
-          <div class="menu-icon">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#"
-              ><i data-feather="eye" class="item-detail-button"></i
-            ></a>
-          </div>
-        </div>
+        </template>
       </div>
     </section>
 
@@ -285,7 +270,7 @@
       feather.replace();
     </script>
 
-    <!-- Js -->
+    <!-- JS -->
     <script src="js/script.js"></script>
   </body>
 </html>

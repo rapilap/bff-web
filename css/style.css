@@ -317,7 +317,7 @@ body {
 
 .menu .row .menu-card img {
   border-radius: 50%;
-  width: 80%;
+  width: 25%;
 }
 
 .menu .row .menu-card-title {
@@ -337,6 +337,10 @@ body {
 .menu .row .menu-card .menu-icon a:hover {
   color: var(--primary);
 }
+
+/* .menu .row .menu-card .menu-icon use {
+  color: #fff;
+} */
 
 .menu .row .menu-card .star-fill {
   fill: var(--primary);
