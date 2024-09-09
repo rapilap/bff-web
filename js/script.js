@@ -36,12 +36,12 @@ document.addEventListener("click", function (e) {
 // Search End
 
 // Shopping Cart Start
-document.querySelector("#shopping-cart").onclick = () => {
+document.querySelector("#shopping-cart-button").onclick = () => {
   shopCart.classList.toggle("active");
 };
 
 // Outside Click
-const cart = document.querySelector("#shopping-cart");
+const cart = document.querySelector("#shopping-cart-button");
 
 document.addEventListener("click", function (e) {
   if (!cart.contains(e.target) && !shopCart.contains(e.target)) {
